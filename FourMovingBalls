@@ -1,0 +1,57 @@
+/*
+	FourMovingBalls is a code which creats four moving balls from left to right 
+	and changes color of balls randomlly and changes backgroung once all balles moved from left to right 
+*/
+
+
+
+
+import processing.core.PApplet;
+
+public class Processing extends PApplet {
+
+    public static final int WIDTH = 1500;
+    public static final int HEIGHT = 1000;
+    public static final float Diameter = 25;
+    public int start = 1;
+
+    public static void main(String[] args) {
+        PApplet.main("Processing", args);
+    }
+
+    @Override // control o
+    public void settings() {
+        size(WIDTH, HEIGHT);
+    }
+
+    @Override
+    public void draw() {
+        changeCircleColor();						            // changing color of circle
+
+        //let's create four balls
+
+        drawCircle(start, height);
+        drawCircle(2*start, height*2);
+        drawCircle(3*start, height*3);
+        drawCircle(4*start, height*4);
+
+        start++;												// increasing start to appear the ball as moving
+        if (start > width) {
+            changeBackgroundColor();                            // changes background color and resets the balls to initial position
+        }
+    }
+
+
+    private void drawCircle(int start, int height) {
+        ellipse(start, height / 5, Diameter, Diameter);
+    }
+
+    private void changeCircleColor() {
+        fill(random(0, 255), random(0, 255), random(0, 255));
+    }
+
+    private void changeBackgroundColor() {
+        start = 0;
+        background(random(0, 255), random(0, 255), random(0, 255));
+    }
+}
