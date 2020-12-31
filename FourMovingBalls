@@ -26,7 +26,7 @@ public class Processing extends PApplet {
 
     @Override
     public void draw() {
-        changeCircleColor();						            // changing color of circle
+        changeCircleColor();					// changing color of circle
 
         //let's create four balls
 
@@ -35,7 +35,7 @@ public class Processing extends PApplet {
         drawCircle(3*start, height*3);
         drawCircle(4*start, height*4);
 
-        start++;												// increasing start to appear the ball as moving
+        start++;						// increasing start to appear the ball as moving
         if (start > width) {
             changeBackgroundColor();                            // changes background color and resets the balls to initial position
         }
