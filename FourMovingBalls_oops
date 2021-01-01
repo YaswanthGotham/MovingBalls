@@ -1,0 +1,47 @@
+import processing.core.PApplet;
+public class MovingBallsOops extends PApplet {
+
+    public static void main(String[] args){ PApplet.main("MovingBallsOops", args); }
+    public Dimension d;
+    @Override
+    public void settings() {
+        d = new Dimension();
+        size(d.width, d.height);
+        System.out.println(d);
+    }
+
+    @Override
+    public void draw() {
+        d.drawCircle(d.start, d.height);
+        d.drawCircle(d.start*2, d.height*2);
+        d.drawCircle(d.start*3, d.height*3);
+        d.drawCircle(d.start*4, d.height*4);
+        d.start++;
+        if (d.start > d.width) {
+            d.changeBackgroundColor();
+        }
+    }
+
+
+    public class Dimension{
+        public final int width;
+        public final int height;
+        private final int diameter;
+        public int start;
+        Dimension(){
+            width = 1500;
+            height = 1000;
+            diameter = 25;
+            start = 1;
+        }
+        public void drawCircle(int start, int height) {
+            ellipse(start, height / 5, diameter, diameter);
+        }
+
+        public void changeBackgroundColor() {
+            start = 0;
+            background(random(0, 255), random(0, 255), random(0, 255));
+        }
+
+    }
+}
